@@ -25,12 +25,13 @@ router.get("/", (req, res) => {
       // callback
       (error, response, body) => {
         let mounts = JSON.parse(body)
-        res.send({ 
-          token: {
-            mounts,
-          },
+        // console.log(mounts)
+        res.send( 
+          // token: {
+            mounts
+          // },
           // ...body,
-        });
+        );
         // let introspectResponse = JSON.parse(body);
 
         // // valid token -> get more user data and send it back to the react app

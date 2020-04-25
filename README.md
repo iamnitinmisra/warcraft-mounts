@@ -10,7 +10,7 @@
 # Steps to setup
 1. clone the repo
 2. at the root of the directory, run npm i
-3. create and module.export ./src/setup.js
+3. create file ./src/setup.js
     - the file should have the following details
 ```js
 module.exports = {
@@ -29,13 +29,15 @@ module.exports = {
 
 # App Features
 ### Account Wide Mounts
+- All mounts collected
 
-### Character Specific Mounts
-- A count of the mounts collected by character
+### Character Specific Mounts (LOTR)
+- A count of the collected mounts useable by a single character
 
-### Upcoming Mount Progress
-- Track progress towards earning a mount
+### Mount Progress
+- Track progress towards earning a specific mount
 
 ### Helper
 - Organize a list of activities to be performed before the weekly reset
 - based on mounts that have not been collected yet and ease of getting them
+- user can enter how much gold they have to get a list of purchaseable mounts

@@ -38,6 +38,7 @@ module.exports = {
 - Track progress towards earning a specific mount
 
 ### Helper
-- Organize a list of activities to be performed before the weekly reset
-- based on mounts that have not been collected yet and ease of getting them
+- Player should be able to organize a list of activities to be performed before weekly that resets on a player defined timer
+- filter for mounts that have not been collected yet
+- sort by ease of getting them
 - user can enter how much gold they have to get a list of purchaseable mounts

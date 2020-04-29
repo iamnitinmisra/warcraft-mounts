@@ -7,22 +7,13 @@
 - express-session
 - request
 
-# Steps to setup
-1. clone the repo
-2. at the root of the directory, run npm i
-3. create file ./src/setup.js
-    - the file should have the following details
-```js
-module.exports = {
-    clientID: 'get this from blizzard',
-    clientSecret: 'get this from blizzard',
-    redirectURI: 'http://localhost:9000/oauth-callback',
-    
-    // ports
-    clientPort: 3000,
-    serverPort: 9000,
-}
-```  
+## Blizzard Endpoints
+- Get..
+- Post..
+-
+-
+
+
 # Security
 ## Authorization
 - OAUTH 2.0 via Blizzard

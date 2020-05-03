@@ -24,3 +24,4 @@ yarn-error.log*
 
 #setup
 /src/setup.js
+mounts.json

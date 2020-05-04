@@ -51,4 +51,9 @@
 - 12931: (350) No Stable Big Enough - Biting Frostshard Core
 - 12934: (400) A Horde of Hoofbeats
 
-## Mounts
+## Steps to release
+- Retrieve and display full WoW Mount List
+- Seperate Mounts into purchasable, drops, or rewards
+- Retrieve character obtained mount list
+- Compare full list to obtained list, green highlight over obtained
+- Sort mounts gated by reputation by how close to earning the character is (sorted by drop, reward, rep)

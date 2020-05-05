@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Greeting from "./components/Greeting";
 import LogInOut from "./components/LogInOut";
 import axios from "axios";
-import config from "./setup";
+import { serverPort } from "./setup";
 import AttainedMounts from "./components/AttainedMounts";
 import Title from "./components/Title";
 import "./reset.css";
@@ -13,21 +13,21 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      body: {}, // this is the body from /user route
+      mountCollection: {}, // this is the body from /user roue
     };
   }
 
   componentDidMount() {
-    console.log("Server Port", config.serverPort);
+    console.log("Server Port", serverPort);
     axios
-      .get(`http://localhost:${config.serverPort}/mounts`, {
+      .get(`http://localhost:${serverPort}/mounts`, {
         withCredentials: true,
       })
-      // .then(res => console.log(res.data))
+      // .then(res => console.log(res.data.mounts))
 
       .then((res) =>
         this.setState({
-          body: res.data,
+          mountCollection: res.data.mounts,
         })
       );
   }
@@ -38,11 +38,11 @@ class App extends Component {
       <div className="App">
         <Title />
         <AttainedMounts />
-        <Greeting body={this.state.body} />
+        <Greeting body={this.state.mountCollection} />
         <br />
         <LogInOut
-          body={this.state.body}
-          uri={`http://localhost:${config.serverPort}`}
+          body={this.state.mountCollection}
+          uri={`http://localhost:${serverPort}`}
         />
       </div>
     );

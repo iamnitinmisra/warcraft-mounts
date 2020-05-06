@@ -3,9 +3,9 @@ const router = express.Router();
 const request = require("request");
 const config = require("../../src/setup");
 
-const namespace = 'profile-us'
-const region = 'us'
-const locale = 'en-US'
+const namespace = "profile-us";
+const region = "us";
+const locale = "en-US";
 
 router.get("/", (req, res) => {
   // token in session -> get user data and send it back to the react app
@@ -14,16 +14,17 @@ router.get("/", (req, res) => {
       // GET request to user mounts collection endpoint
       {
         method: "GET",
-        uri: `https://us.api.blizzard.com/profile/user/wow/collections/mounts?namespace=${namespace}&locale=${locale}&access_token=${req.session.token}`
+        uri: `https://us.api.blizzard.com/profile/user/wow/collections/mounts?namespace=${namespace}&locale=${locale}&access_token=${req.session.token}`,
       },
 
       // callback
       (error, response, body) => {
-        let mounts = JSON.parse(body)
-        // console.log(mounts)
-        res.send( 
+        let mounts = JSON.parse(body);
+
+        // console.log({mounts}.mounts)
+        res.send(
           // token: {
-            mounts
+          { mounts }.mounts
           // },
         );
       }

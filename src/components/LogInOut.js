@@ -1,11 +1,11 @@
 import React from "react";
 
 export default function LogInOut(props) {
-  let message = props.body.mounts ? "Sign out" : `Sign in`;
+  let message = props.mountCollection ? "Sign out" : `Sign in`;
 
-  let redirect = props.body.mounts ? "" : "You will be redirected";
+  let redirect = props.mountCollection ? "" : "You will be redirected";
 
-  let path = props.body.mounts ? "/logout" : "/login";
+  let path = props.mountCollection ? "/logout" : "/login";
 
   return (
     <div>

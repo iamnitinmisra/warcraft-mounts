@@ -7,18 +7,16 @@ import AttainedMounts from "./components/AttainedMounts";
 import Title from "./components/Title";
 import "./reset.css";
 
-
-
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      mountCollection: {}, // this is the body from /user roue
+      mountCollection: undefined, // this is the body from /user roue
+      status200: false,
     };
   }
 
   componentDidMount() {
-    console.log("Server Port", serverPort);
     axios
       .get(`http://localhost:${serverPort}/mounts`, {
         withCredentials: true,
@@ -32,18 +30,29 @@ class App extends Component {
       );
   }
 
+  componentDidUpdate() {
+    const { mountCollection, status200 } = this.state;
+    if (mountCollection && status200 === false) {
+      this.setState({
+        status200: true,
+      });
+    }
+  }
+
   render() {
-    console.log("app", this.state);
+    // console.log("app", this.state);
+    const { status200 } = this.state;
+
     return (
       <div className="App">
         <Title />
-        <AttainedMounts />
-        <Greeting body={this.state.mountCollection} />
+        <Greeting mountCollection={this.state.mountCollection} />
         <br />
         <LogInOut
-          body={this.state.mountCollection}
+          mountCollection={this.state.mountCollection}
           uri={`http://localhost:${serverPort}`}
         />
+        {status200 ? <AttainedMounts /> : console.log("You are not signed in")}
       </div>
     );
   }

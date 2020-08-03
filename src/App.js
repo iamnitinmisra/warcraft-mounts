@@ -11,7 +11,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      mountCollection: undefined, // this is the body from /user roue
+      mountCollection: [], 
       status200: false,
     };
   }
@@ -21,8 +21,6 @@ class App extends Component {
       .get(`http://localhost:${serverPort}/mounts`, {
         withCredentials: true,
       })
-      // .then(res => console.log(res.data.mounts))
-
       .then((res) =>
         this.setState({
           mountCollection: res.data.mounts,
@@ -32,6 +30,8 @@ class App extends Component {
 
   componentDidUpdate() {
     const { mountCollection, status200 } = this.state;
+
+    // if successful login and status 200 on GET request for user's mount collection
     if (mountCollection && status200 === false) {
       this.setState({
         status200: true,
@@ -40,19 +40,21 @@ class App extends Component {
   }
 
   render() {
-    // console.log("app", this.state);
-    const { status200 } = this.state;
+    console.log("app", this.state);
+    const { mountCollection, status200 } = this.state;
 
     return (
       <div className="App">
         <Title />
-        <Greeting mountCollection={this.state.mountCollection} />
-        <br />
+        <Greeting mountCollection={mountCollection} />
         <LogInOut
-          mountCollection={this.state.mountCollection}
+          mountCollection={mountCollection}
           uri={`http://localhost:${serverPort}`}
         />
-        {status200 ? <AttainedMounts /> : console.log("You are not signed in")}
+        <AttainedMounts
+          status200={status200}
+          mountCollection={mountCollection}
+        />
       </div>
     );
   }

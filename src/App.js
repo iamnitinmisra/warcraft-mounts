@@ -40,7 +40,7 @@ class App extends Component {
   }
 
   render() {
-    console.log("app", this.state);
+    console.log("app -> mountCollection", this.state.mountCollection);
     const { mountCollection, status200 } = this.state;
 
     return (
